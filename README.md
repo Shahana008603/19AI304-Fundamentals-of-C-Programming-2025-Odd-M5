@@ -1,4 +1,6 @@
 # 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
+## NAME: SHAHANA.C
+## REFF NO:25017599
 # IAPR-5- Module 5 - FoC
 ## 9. Implementation of recursion.
 ## 10. Implementation of programs using pointer arithmetic.
@@ -39,7 +41,42 @@
 ### Step 12: 
   Stop
 # Program:
+#include <stdio.h>
+
+void swapv(int x, int y);
+void swapr(int *x, int *y);
+
+int main() {
+    int a = 10, b = 20;
+
+    printf("Before swapv: a = %d, b = %d\n", a, b);
+    swapv(a, b);
+    printf("After swapv: a = %d, b = %d\n\n", a, b);
+
+    printf("Before swapr: a = %d, b = %d\n", a, b);
+    swapr(&a, &b);
+    printf("After swapr: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+
+void swapv(int x, int y) {
+    int temp = x;
+    x = y;
+    y = temp;
+    printf("Inside swapv: x = %d, y = %d\n", x, y);
+}
+
+void swapr(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+    printf("Inside swapr: *x = %d, *y = %d\n", *x, *y);
+}
 # Output:
+
+![WhatsApp Image 2025-12-31 at 7 59 02 PM](https://github.com/user-attachments/assets/b756ae40-b704-4e54-aedb-fa511e921857)
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +114,31 @@
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+void fibo(int num)
+{
+    int i,n1=0,n2=1,n3;
+    printf("%d %d ",n1,n2);
+    for(i=2;i<num;i++)
+    {
+      n3=n1+n2;
+      n1=n2;
+      n2=n3;
+      printf("%d ",n3);
+    }
+    
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    fibo(n);
+    return 0;
+}
 # Output:
+
+![WhatsApp Image 2025-12-31 at 8 05 04 PM](https://github.com/user-attachments/assets/f7434d06-f8ee-4ddc-8d84-be1eb3585fc1)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +180,44 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+#include <stdio.h>
+
+void printEvenOdd(int cur, int limit);
+
+int main() {
+    int lowerLimit, upperLimit;
+
+    printf("Enter the lower limit: ");
+    scanf("%d", &lowerLimit);
+
+    printf("Enter the upper limit: ");
+    scanf("%d", &upperLimit);
+
+    printf("Numbers in the range are: ");
+    if (lowerLimit % 2 != 0) {
+        lowerLimit++; // Start from even if you want even numbers
+    }
+    printEvenOdd(lowerLimit, upperLimit);
+    printf("\n");
+
+    return 0;
+}
+
+void printEvenOdd(int cur, int limit) {
+    if (cur > limit)
+        return;
+
+    if (cur == limit)
+        printf("%d", cur);
+    else
+        printf("%d, ", cur);
+
+    printEvenOdd(cur + 2, limit);
+}
 # Output:
+
+![WhatsApp Image 2025-12-31 at 8 07 23 PM](https://github.com/user-attachments/assets/ace978bf-b3bb-4f11-89f6-28d27d8ae110)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +259,41 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr;
+    int n, i, sum = 0;
+
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
+
+    ptr = (int *)calloc(n, sizeof(int));
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("Enter integer %d: ", i + 1);
+        scanf("%d", ptr + i);
+    }
+
+    for (i = 0; i < n; i++) {
+        sum += *(ptr + i);
+    }
+
+    printf("Sum of the entered integers: %d\n", sum);
+
+    free(ptr);
+
+    return 0;
+}
 # Output:
+![WhatsApp Image 2025-12-31 at 8 10 09 PM](https://github.com/user-attachments/assets/67d378c6-f414-44ce-abce-1133984068fa)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +329,36 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+
+void displayArray(int *arr, int size);
+
+int main() {
+    int arr[5];
+    int i;
+
+    printf("Enter 5 integers: ");
+    for (i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("The array elements are: ");
+    displayArray(arr, 5);
+
+    return 0;
+}
+
+void displayArray(int *arr, int size) {
+    int i;
+    for (i = 0; i < size; i++) {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+}
+
+
 # Output:
+![WhatsApp Image 2025-12-31 at 8 11 38 PM](https://github.com/user-attachments/assets/e8ba300e-8d94-4e3f-8fc8-6876be020447)
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
